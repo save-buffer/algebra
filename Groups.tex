@@ -6,7 +6,7 @@
 \maketitle
 
 \begin{defn}
-  A group is a pair $G = (G, \star)$ consisting of a set $G$
+  A \vocab{group} is a pair $G = (G, \star)$ consisting of a set $G$
   and a binary operation $\star$ on $G$ such that:
   \begin{itemize}
   \item G has an identity $1_G$ or just $1$ such that
@@ -24,9 +24,15 @@
 \end{remark}
 
 \begin{defn}
-  A group is abelian if its operation is commutative ($a \star b = b \star a$).
-  Otherwise, it is non-abelian. 
+  A group is \vocab{abelian} if its operation is commutative ($a \star b = b \star a$).
+  Otherwise, it is \vocab{non-abelian}. 
 \end{defn}
+
+\begin{defn}
+  A mapping is a \vocab{bijection} if it is injective (one-to-one) and
+  surjective (onto). 
+\end{defn}
+
 \noindent Properties of Groups:
 \begin{itemize}
 \item Let $G$ be a group.
@@ -42,7 +48,7 @@
 
 \begin{defn}
   Let $G = (G, \star)$ and $H = (H, *)$ be groups. A bijection
-  $\phi : G \rightarrow H$ is called an isomorphism if
+  $\phi : G \rightarrow H$ is called an \vocab{isomorphism} if
   $$\forall g_1, g_2 \in G, \phi(g_1 \star g_2) = \phi(g_1) * \phi(g_2)$$
   If there exists an isomorphism from $G$ to $H$, then $G$ and $H$ are isomorphic,
   i.e. $G \cong H$. 
@@ -53,13 +59,94 @@
 \end{remark}
 
 \begin{defn}
-  The order of a group $G$ is the number of elements in $G$, denoted $|G|$.
-  A group is a finite group if $|G|$ is finite. 
+  The \vocab{order of a group} $G$ is the number of elements in $G$, denoted $|G|$.
+  A group is a \vocab{finite group} if $|G|$ is finite.
 \end{defn}
 
 \begin{defn}
-  The order of an element $g \in G$ is the smallest positive integer $n$
+  The \vocab{order of an element} $g \in G$ is the smallest positive integer $n$
   such that $g^n = 1_G$ or $\infty$ if no such $n$ exists. Denoted $\ord{g}$. 
 \end{defn}
+
+\begin{fact}
+  If $G^n = 1_G$ then $\ord{g} | n$. 
+\end{fact}
+
+\begin{fact}
+  Let $G$ be a finite group. Then for all $g \in G, \ord{g}$ is finite.
+\end{fact}
+
+\begin{nthm}[Lagrange's Theorem For Orders]  
+  Let $G$ be any finite group. Then $\forall x \in G, x^{|G|} = 1_G$.
+  This is the general case of Fermat's Little Theorem. 
+\end{nthm}
+
+\begin{defn}
+  The \vocab{General Linear Group} of degree $n$, denoted $\GL_n$ is the set of
+  invertible $n \times n$ matrices along with the operation of matrix
+  multiplication. To specify what is in each matrix, we give it an argument.
+  For example, the GL over $\RR^{n \times n}$ is denoted $\GL_n(\RR)$. 
+\end{defn}
+
+\begin{defn}
+  Let $G = (G, \star)$ be a group. A group $H = (H, \star)$ is a
+  \vocab{subgroup} of $G$ if $H \subseteq G$. $H$ is called a \vocab{proper subgroup}
+  of $G$ if $H \neq G$. 
+\end{defn}
+
+\begin{remark}
+  If $H$ is a subgroup of $G$, the binary operation is the same. Therefore,
+  to specify $H$, you need only provide its elements, not its operation. 
+\end{remark}
+
+\begin{defn}
+  The \vocab{Special Linear Group} of degree $n$ over a field $F$, denoted $\SL_n(F)$
+  is the subgroup of $\GL_n(F)$ such that $\forall x \in \SL_n(F), \det(x) = 1$.
+\end{defn}
+
+\begin{defn}
+  Let $G$ be a group. Let $S$ be a subset of $G$. The subgroup \vocab{generated} by
+  $S$, $\langle S \rangle$ is the set of elements which can be written as a finite
+  product of elements in $S$ and their inverses. If $\langle S \rangle = G$,
+  then $S$ is a set of \vocab{generators} for G. 
+\end{defn}
+
+\begin{defn}
+  The \vocab{group presentation} of a group is an expression specifying a
+  set of generators and \vocab{relations} between the generators. For example,
+  $$\ZZ_{100} = \langle x | x^{100} = 1$$
+\end{defn}
+
+\begin{remark}
+  Determining if a group is finite from its presentation is undecideable.
+\end{remark}
+
+\begin{defn}
+  Let $G = (G, \star)$ and $H = (H, *)$ be groups. A \vocab{group homomorphism}
+  is a map $\phi : G \rightarrow H$ such that
+  $$\forall g_1, g_2 \in G, \phi(g_1 \star g_2) = \phi(g_1) * \phi(g_2)$$
+  Notice that this is is the same as an isomorphism, only lacking the requirement that
+  $\phi$ be a bijection. 
+\end{defn}
+
+\begin{defn}
+  The \vocab{trivial homomorphism} $G \rightarrow H$ sends every element of $G$ to $1_H$.
+\end{defn}
+
+\begin{fact}
+  Let $\phi : G \rightarrow H$ be a homomorphism. Then $\phi(1_G) = 1_H$ and
+  $\phi(g^{-1}) = \phi(g)^{-1}$.
+\end{fact}
+
+\begin{defn}
+  The \vocab{kernel} of a homomorphism $\phi : G \rightarrow H$ is
+  $$\ker \phi = \{g \in G : \phi(g) = 1_H\}$$
+  $\ker \phi$ is a subgroup of G. 
+\end{defn}
+
+\begin{prop}
+  The map $\phi$ is injective if and only if $\ker \phi = {1_G}$. 
+\end{prop}
+    
 
 \end{document}

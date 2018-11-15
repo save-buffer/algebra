@@ -76,7 +76,7 @@
   Let $G$ be a finite group. Then for all $g \in G, \ord{g}$ is finite.
 \end{fact}
 
-\begin{nthm}[Lagrange's Theorem For Orders]  
+\begin{nthm}[Lagrange's Theorem For Orders]
   Let $G$ be any finite group. Then $\forall x \in G, x^{|G|} = 1_G$.
   This is the general case of Fermat's Little Theorem. 
 \end{nthm}
@@ -114,7 +114,7 @@
 \begin{defn}
   The \vocab{group presentation} of a group is an expression specifying a
   set of generators and \vocab{relations} between the generators. For example,
-  $$\ZZ_{100} = \langle x | x^{100} = 1$$
+  $$\ZZ_{100} = \langle x | x^{100} = 1 \rangle$$
 \end{defn}
 
 \begin{remark}
@@ -139,14 +139,59 @@
 \end{fact}
 
 \begin{defn}
-  The \vocab{kernel} of a homomorphism $\phi : G \rightarrow H$ is
+  The \vocab{kernel} of a homomorphism $\phi : G \rightarrow H$ is a subgroup of $G$ such that
   $$\ker \phi = \{g \in G : \phi(g) = 1_H\}$$
-  $\ker \phi$ is a subgroup of G. 
+\end{defn}
+
+\begin{defn}
+  The \vocab{image} of a homomorphism $\phi : G \rightarrow H$ is a subgroup of $G$ such that
+  $$\img \phi = \phi(G) = \{\phi(x) : x \in G \}$$
 \end{defn}
 
 \begin{prop}
   The map $\phi$ is injective if and only if $\ker \phi = {1_G}$. 
 \end{prop}
-    
+
+\begin{defn}
+  Let $H$ be any subgroup of $G$. A set of the form $gH$ for any $g \in G$ is called a
+  \vocab{left coset} of $H$. 
+\end{defn}
+
+\begin{remark}
+  It is possible for $g_1N = g_2N$, even if $g_1 \neq g_2$. 
+\end{remark}
+
+\begin{remark}
+  Given cosets $g_1H$ and $g_2H$, the map $x \mapsto g_2g_1^{-1}$ is a bijection, so
+  all cosets have equal cardinality. 
+\end{remark}
+
+\begin{defn}
+  A subgroup $N$ of $G$ is called \vocab{normal} if it is the kernel of some surjective
+  homomorphism. We write this as $N \trianglelefteq G$. 
+\end{defn}
+
+\begin{defn}
+  Let $N \trianglelefteq G$. Then the \vocab{quotient group}, denoted $G/N$ is
+  the group defined such that:
+  \begin{itemize}
+    \item The elements of $G/N$ will be the left cosets of $N$.
+    \item Let $g_1, g_2 \in G$. Then $(g_1N) \cdot (g_2N) = (g_1g_2)N$. 
+  \end{itemize}
+\end{defn}
+
+\begin{remark}
+  We can define an equivalence relation $~_N$ on $G$ by saying $x ~_N y$ for
+  $\phi(x) = \phi(y)$. $~_N$ divides $G$ into equivalence classes which are
+  in bijection to $G/N$. 
+\end{remark}
+
+\begin{nthm}[Lagrange's Theorem]
+  Let G be a finite group, and let H be any subgroup. Then $|H|$ divides $|G|$. 
+\end{nthm}
+
+\begin{remark}
+  If $G$ is finite and $N \trianglelefteq G$, then $|G/N| = |G|/|N|$. 
+\end{remark}
 
 \end{document}

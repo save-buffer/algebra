@@ -50,7 +50,7 @@
   Let $G = (G, \star)$ and $H = (H, *)$ be groups. A bijection
   $\phi : G \rightarrow H$ is called an \vocab{isomorphism} if
   $$\forall g_1, g_2 \in G, \phi(g_1 \star g_2) = \phi(g_1) * \phi(g_2)$$
-  If there exists an isomorphism from $G$ to $H$, then $G$ and $H$ are isomorphic,
+  If there exists an isomorphism from $G$ to $H$, then $G$ and $H$ are \vocab{isomorphic},
   i.e. $G \cong H$. 
 \end{defn}
 
@@ -77,8 +77,8 @@
 \end{fact}
 
 \begin{nthm}[Lagrange's Theorem For Orders]
-  Let $G$ be any finite group. Then $\forall x \in G, x^{|G|} = 1_G$.
-  This is the general case of Fermat's Little Theorem. 
+  Let $G$ be any finite group. Then $\forall x \in G, x^{|G|} = 1_G$ for
+  any $x \in G$. This is the general case of Fermat's Little Theorem. 
 \end{nthm}
 
 \begin{defn}
@@ -175,23 +175,119 @@
   Let $N \trianglelefteq G$. Then the \vocab{quotient group}, denoted $G/N$ is
   the group defined such that:
   \begin{itemize}
-    \item The elements of $G/N$ will be the left cosets of $N$.
-    \item Let $g_1, g_2 \in G$. Then $(g_1N) \cdot (g_2N) = (g_1g_2)N$. 
+  \item The elements of $G/N$ will be the left cosets of $N$.
+  \item Let $g_1, g_2 \in G$. Then $(g_1N) \cdot (g_2N) = (g_1g_2)N$. 
   \end{itemize}
 \end{defn}
 
 \begin{remark}
-  We can define an equivalence relation $~_N$ on $G$ by saying $x ~_N y$ for
-  $\phi(x) = \phi(y)$. $~_N$ divides $G$ into equivalence classes which are
+  We can define an equivalence relation $\sim_N$ on $G$ by saying $x \sim_N y$ for
+  $\phi(x) = \phi(y)$. $\sim_N$ divides $G$ into equivalence classes which are
   in bijection to $G/N$. 
 \end{remark}
 
 \begin{nthm}[Lagrange's Theorem]
   Let G be a finite group, and let H be any subgroup. Then $|H|$ divides $|G|$. 
 \end{nthm}
-
+\begin{proof}
+  Cosets of $H$ have the same size and form a partition on $G$. If $n$ is the number
+  of cosets, then $n|H| = |G|$, so $|H|$ divides $|G|$. 
+\end{proof}
 \begin{remark}
   If $G$ is finite and $N \trianglelefteq G$, then $|G/N| = |G|/|N|$. 
+\end{remark}
+\begin{remark}
+  For $g_1N \cdot g_2N = (g_1g_2)N$ to hold, $N$ must be normal to $G$ because
+  this condition lets us pick any $g_1, g_2 \in N$ and still end up with the
+  same coset. 
+\end{remark}
+
+\begin{prop}
+  Suppose $\phi : G \mapsto K$ is a homomorphism with $H = \ker \phi$. If
+  $h \in H, g \in G$, then $ghg^{-1} \in H$. 
+\end{prop}
+
+\begin{nthm}[Algebraic Condition for Normal Subgroups]
+  Let $H$ be a subgroup of $G$. Then the following are equivalent:
+  \begin{itemize}
+  \item $H \trianglelefteq G$
+  \item $\forall g \in G, h \in H, ghg^{-1} \in H$
+  \end{itemize}
+\end{nthm}
+
+\begin{nthm}[First Isomorphism Theorem]
+  Let $G, H$ be groups and let $\phi : G \rightarrow H$ be a homomorphism. Then:
+  \begin{itemize}
+  \item $\ker \phi \trianglelefteq G$
+  \item $\img \phi \leq H$
+  \item $\img \phi \cong G / \ker(\phi)$
+  \end{itemize}
+\end{nthm}
+
+\begin{defn}
+  Let $X$ be a set and $G$ be a group, and let $x \in X, g \in G$. A \vocab{group action}
+  is a binary operation $\cdot : G \times X \rightarrow X$ that sends $x$ go $g \cdot x$.
+  It satisfies:
+  \begin{itemize}
+  \item $\forall x \in X, \forall g_1, g_2 \in G, (g_1g_2) \cdot x = g_1 \cdot (g_2 \cdot x)$
+  \item $\forall x \in X, 1_G \cdot x = x$
+  \end{itemize}
+\end{defn}
+
+\begin{defn}
+  Given a group action $G$ on $X$, define an equivalence relation $\sim$ on $X$ such that
+  $x \sim y$ if $x = g \cdot y$ for some $g \in G$. The equivalence classes under $\sim$ are
+  \vocab{orbits}, denoted $\OO$. In other words, the orbit is everything that can be reached
+  from $x$ by an action of something in $G$. 
+\end{defn}
+
+\begin{defn}
+  The \vocab{stabilizer} of a point $x \in X$, denoted $\operatorname{Stab}_G$, is
+  the set of $g \in G$ which fix x. In other words, the set of elements of $G$ which don't
+  move when they act on $x$.
+  $$\operatorname{Stab}_G(x) = \{g \in G : g \cdot x = x\}$$
+\end{defn}
+
+\begin{nthm}[Orbit-Stabilizer Theorem]
+  Let $\OO$ be an orbit, and pick any $x \in \OO$. Let $S = \operatorname{Stab}_G(x)$
+  be a subgroup of $G$. There is a natural bijection between $\OO$ and left cosets.
+  $$|\OO||S| = |G|$$
+  In particular, the stabilizers of each $x \in \OO$ have the same size. 
+\end{nthm}
+
+\begin{proof}
+  Every coset of $gS$ specifies an element of $\OO$, namely $g \cdot x$. Since
+  there are $|\OO|$ partitions of $G$ and each one is of size $|S|$,
+  the result follows.   
+\end{proof}
+
+\begin{nthm}[Burnside's Lemma]
+  Let $G$ act on a set $X$. The number of orbits of the action is equal to
+  $$\frac{1}{|G|} \sum\limits_{g \in G} |\operatorname{FixPt} g|$$
+  where $\operatorname{FixPt} g$ is the set of points $x \in X$ such that
+  $g \cdot x = x$. 
+\end{nthm}
+
+\begin{defn}
+  A common action is \vocab{conjugation}. $G$ acts on itself:
+  $$C_G : G \times G \rightarrow G$$
+  $$C_G(g, h) = ghg^{-1}$$
+\end{defn}
+
+\begin{defn}
+  The \vocab{conjugacy classes} of a group $G$ are the orbits of $G$ under the
+  conjugacy action. 
+\end{defn}
+
+\begin{defn}
+  Let $G$ be a group. The \vocab{center} of $G$, denoted $Z(G)$ is the set of
+  elements of $x \in G$ such that $xg = gx$ for every $g \in G$. $Z(G)$ is a subgroup
+  of $G$. 
+  $$Z(G) = \{x \in G : gx = xg \forall g \in G\}$$
+\end{defn}
+
+\begin{remark}
+  If $G$ is abelian, then the conjugacy classes all have sizes one. 
 \end{remark}
 
 \end{document}

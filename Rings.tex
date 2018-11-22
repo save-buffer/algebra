@@ -1,0 +1,121 @@
+\documentclass{article}
+\usepackage{sasha}
+\title{Rings}
+\author{Sasha Krassovsky}
+\begin{document}
+\maketitle
+
+\begin{defn}
+  A \vocab{ring} is a triple $(R, +, \times)$, with operations called addition and
+  multiplication. Properties:
+  \begin{enumerate}
+  \item $(R, +)$ is an abelian group with identity $0_R$.
+  \item $\times$ is an associative binary operation on $R$ with an identity $1_R$.
+  \item Multiplication distributes over addition.
+  \end{enumerate}
+  A ring $R$ is \vocab{commutative} if $\times$ is commutative.
+\end{defn}
+
+\begin{defn}
+  The \vocab{trivial ring} is the ring with only one element, where $0_R = 1_R$. 
+\end{defn}
+
+\begin{fact}
+  For any ring $R$ with $r \in R$, $r \cdot 0_R$ and $r * (-1_R) = -r$. 
+\end{fact}
+
+\begin{defn}
+  The \vocab{Gaussian integers} are the complex numbers with integer real and imaginary parts.
+  $$Z[i] = \{a + bi : a, b \in \ZZ\}$$
+\end{defn}
+
+\begin{defn}
+  Let $R, S$ be rings. Then the \vocab{product ring}, denoted $R \times S$ is defined
+  as ordered pairs $(r, s)$ with both operations done component-wise. 
+\end{defn}
+
+\begin{defn}
+  A \vocab{unit} of a ring $R$ is an element $u \in R$ which is invertible. That is,
+  for some $x \in R$, $ux = 1_R$. 
+\end{defn}
+
+\begin{defn}
+  A nontrivial commutative ring is a \vocab{field} if all of its nonzero elements are units. 
+\end{defn}
+\begin{remark}
+  Colloquially, a field is a structure where you can add, subtract, multiply, and divide.
+\end{remark}
+
+\begin{defn}
+  Let $R$ be a ring and $a, b \in R$ such that $ab = 0$ and $a, b \neq 0$. Then $a$ and
+  $b$ are the \vocab{zero divisors} of $R$. \\
+  Example: $\ZZ_{15}$ has this property, where $3, 5$ are the zero divisors because
+  $3 \cdot 5 \equiv 0 \pmod{15}$. 
+\end{defn}
+
+\begin{defn}
+  A nontrivial commutative ring with no zero divisors is an \vocab{integral domain}.
+\end{defn}
+
+\begin{defn}
+  Let $R = (R, +_R, \times_R)$ and $S = (S, +_S, \times_S)$ be rings. A
+  \vocab{ring homomorphism} is a map $\phi : R \rightarrow S$ such that
+  \begin{enumerate}
+  \item $\forall x, y \in R, \phi(x +_R y) = \phi(x) +_S \phi(y)$.
+  \item $\forall x, y \in R, \phi(x \times_R y) = \phi(x) \times_S \phi(y)$.
+  \item $\phi(1_R) = 1_S$. 
+  \end{enumerate}
+  If $\phi$ is a bijection, then $\phi$ is an \vocab{isomorphism} and
+  $R$ and $S$ are \vocab{isomorphic}.
+\end{defn}
+
+\begin{defn}
+  The \vocab{kernel} of a ring homomorphism $\phi : R \rightarrow S$, denoted
+  $\ker \phi$, is defined as follows:
+  $$\ker \phi = \{r \in R : \phi(r) = 0\}$$
+\end{defn}
+
+\begin{fact}
+  If $\phi(x) = \phi(y) = 0$, then $\phi(x + y) = \phi(x) + \phi(y) = 0$, so
+  $\ker \phi$ should be closed under addition. 
+\end{fact}
+
+\begin{fact}
+  If $\phi(x) = 0$, then $\forall r \in R, \phi(rx) = \phi(r)\phi(x) = 0$, so for
+  $x \in \ker \phi$ and any $r \in R$, $rx \in \ker \phi$. 
+\end{fact}
+
+\begin{defn}
+  A nonempty subset $I \subseteq R$ is an \vocab{ideal} if it is closed under addition,
+  and $\forall x \in I, \forall r \in R, rx \in I$.
+\end{defn}
+\begin{remark}
+  This definition is true if we assume the ring is commutative. If the ring is not
+  commutative, we must also add the condition that $xr \in I$. 
+\end{remark}
+
+\begin{theorem}
+  Let $R$ be a ring with $I \subset R$. Then $I$ is the kernel of some homomorphism
+  if and only if $I$ is an ideal. 
+\end{theorem}
+
+\begin{defn}
+  Let $R$ be a ring and $I$ be an ideal. Then the \vocab{quotient ring} is given by
+  $$R/I = \{r + I : r \in R\}$$
+  $R/I$ is when we declare all elements of $I$ are zero, i.e. we ``mod out by
+  elements of $I$''. 
+\end{defn}
+
+\begin{theorem}
+  The only ideals of $\ZZ$ are those of the form $n\ZZ$ where $n$ is an integer. 
+\end{theorem}
+
+\begin{defn}
+  Let $R$ be a ring. The \vocab{ideal generated} by a set of elements
+  $x_1, ..., x_n \in R$ is denoted $I = (x_1, ..., x_n)$ and given by
+  $$I = \{r_1x_1 + ... + r_nx_n : r_i \in R\}$$
+  Example: if $I = (x)$, then $I$ consists only of multiples of $x$, i.e. numbers
+  of the form $rx$ for $r \in R$. 
+\end{defn}
+
+\end{document}

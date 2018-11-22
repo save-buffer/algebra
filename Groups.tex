@@ -168,7 +168,8 @@
 
 \begin{defn}
   A subgroup $N$ of $G$ is called \vocab{normal} if it is the kernel of some surjective
-  homomorphism. We write this as $N \trianglelefteq G$. 
+  homomorphism. We write this as $N \trianglelefteq G$. Other words for normal are:
+  \vocab{self-conjugate} or \vocab{invariant}. 
 \end{defn}
 
 \begin{defn}
@@ -203,7 +204,7 @@
 \end{remark}
 
 \begin{prop}
-  Suppose $\phi : G \mapsto K$ is a homomorphism with $H = \ker \phi$. If
+  Suppose $\phi : G \rightarrow K$ is a homomorphism with $H = \ker \phi$. If
   $h \in H, g \in G$, then $ghg^{-1} \in H$. 
 \end{prop}
 
@@ -280,6 +281,13 @@
 \end{defn}
 
 \begin{defn}
+  Let $G$ be a group and $H$ be a subgroup of $G$. Let $x \in G$ such that $x \not\in H$.
+  $H$ has elements $\{h_1, h_2, ..., h_n\}$. Then the transformation $xh_ix^{-1}$ generates
+  the \vocab{conjugate subgroup} $xHx^{-1}$.
+  Then if $\forall x, xHx^{-1} = H$, $H$ is a normal subgroup.
+\end{defn}
+
+\begin{defn}
   Let $G$ be a group. The \vocab{center} of $G$, denoted $Z(G)$ is the set of
   elements of $x \in G$ such that $xg = gx$ for every $g \in G$. $Z(G)$ is a subgroup
   of $G$. 
@@ -287,7 +295,66 @@
 \end{defn}
 
 \begin{remark}
-  If $G$ is abelian, then the conjugacy classes all have sizes one. 
+  If $G$ is abelian, then the conjugacy classes all have size one. 
 \end{remark}
+
+\begin{nthm}[The Sylow Theorems]
+  Let $G$ be a group of order $p^nm$ where $\gcd(p, m) = 1$ (in particular,
+  $p$ does not divide $m$) and $p$ is prime. A \vocab{Sylow $p$-subgroup} is
+  a subgroup of order $p^n$. Let $n_p$ be the number of Sylow $p$-subgroups
+  of $G$. Then
+  \begin{enumerate}
+  \item $n_p \equiv 1 \pmod{p}$. In particular, $n_p \neq 0$ and a Sylow $p$-subgroup exists.
+  \item $n_p | m$.
+  \item Any two Sylow $p$-subgroups are conjugate subgroups, and hence isomorphic.
+  \end{enumerate}
+\end{nthm}
+
+\begin{remark}
+  All subgroups of an abelian group are normal. 
+\end{remark}
+
+\begin{remark}
+  Sylow's theorem helps us classify groups:
+  \begin{itemize}
+  \item A Sylow $p$-subgroup is normal if and only if $n_p = 1$.
+  \item Any group $G$ of order $pq$ where $p < q$ are primes must have
+    $n_q = 1$, since $n_q \equiv 1 \pmod{q}$ and $n_q | p$. Thus $G$
+    has a normal subgroup of order $q$.
+  \item If a group $G$ is abelian, for every prime $p$ that divides $|G|$ there
+    exists exactly one Sylow $p$-subgroup.
+  \item Let $G$ be a group, $P$ be a Sylow $p$-subgroup and $Q$ be a Sylow $q$-subgroup
+    (with $p \neq q$ prime). Let $A$ be the intersection of $P$ and $Q$. Then $A$ must
+    be a subgroup. Lagrange's Theorem states that $|A|$ divides $|P|$ and $|A|$ divides $|Q|$.
+    This is only possible if $|A| = 1$. Since $A$ is a subgroup, $A$ contains only $1_G$.
+  \end{itemize}
+\end{remark}
+
+\begin{prop}
+  If $|G| = pqr$ is the product of distinct primes, then $G$ must have a normal
+  Sylow subgroup. 
+\end{prop}
+
+\begin{defn}
+  Let $G$ be a group and $H$ be a subgroup of $G$. Then the \vocab{normalizer} of $H$
+  is the stabilizer of $H$ under conjugation.
+  $$N_G(H) = \{g \in G : gHg^{-1} = H\}$$
+\end{defn}
+
+\begin{defn}
+  A \vocab{simple group} is a group with no normal subgroups other than itself and
+  the trivial group.
+\end{defn}
+
+\begin{defn}
+  A \vocab{composition series} of a group $G$ is a sequence of subgroups $H_0, H_1, ..., H_n$
+  such that $H_0 = \{1\}$ and
+  $$H_0 \trianglelefteq H_1 \trianglelefteq ... \trianglelefteq H_n$$
+  The \vocab{compositional factors} are $H_1/H_0, H_2/H_1, ..., H_n/H_{n-1}$.
+\end{defn}
+
+\begin{nthm}[Jordan-Holder Theorem]
+  Every finite group $G$ admits a unique composition series up permutation and isomorphism. 
+\end{nthm}
 
 \end{document}
